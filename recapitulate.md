@@ -25,3 +25,5 @@ Provide a concise summary with:
 - Note any untracked files
 
 Keep the summary brief and actionable. Help the user understand where they left off and what's in progress.
+
+**Important:** The user's changes take priority - focus more attention on their commits and current uncommitted work over other contributors' commits.

@@ -18,12 +18,33 @@ Check if the currently open component follows the standardized hook and function
 9. **render**: Rendering
 9. **pure functions**: Pure functions should be moved to the bottom of the file, outside the component.
 
+## Hook Import Style
+
+- Import hooks directly instead of using `React.` prefix
+- Prefer: `import { useEffect, useMemo, useState } from 'react'`
+- Avoid: `React.useEffect`, `React.useMemo`, `React.useState`
+
+## Import Aliases
+
+- Prefer path aliases (e.g., `@/apps/web/...`, `@/components/...`) over relative backwards imports (e.g., `../../../`)
+- Check for alias support in `tsconfig.json` or `jsconfig.json` under `compilerOptions.paths`
+- Only use relative imports for files in the same directory or immediate subdirectories
+
+## Component Order
+
+When a file contains multiple components:
+- The **main component** (usually matching the filename) must be declared **first**
+- Helper or sub-components should come after the main component
+- Pure functions used by components should be at the bottom of the file
+
 ## Action
 
-- Review the component structure
-- Reorder declarations to match the pattern above
-- Add `// MARK:` comments to separate each section
-- Ensure all hooks and functions are in their correct section
+1. **Check alias support**: Look for `tsconfig.json` or `jsconfig.json` to identify available path aliases
+2. **Organize imports**: Replace relative backwards imports (`../`) with path aliases when available
+3. **Review the component structure**: Ensure declarations follow the required order
+4. **Reorder declarations**: Move hooks and functions to match the pattern above
+5. **Add `// MARK:` comments**: Separate each section with appropriate markers
+6. **Fix hook imports**: Change any `React.useHook` patterns to use direct imports
 
 # Follow `useEffect` Rules
 
